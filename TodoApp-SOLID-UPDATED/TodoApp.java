@@ -4,10 +4,7 @@ import todoapp.ui.ConsoleUI;
 
 public class TodoApp {
     public static void main(String[] args) {
-        System.out.println("Sistema de Lista de Tarefas POO Avançada");
-        System.out.println("Autor: Seu Nome");
-        System.out.println("Versão: 1.0");
-
+        System.out.println("L I S T A    D E    T A R E F A S");
         ConsoleUI ui = new ConsoleUI();
         ui.start();
     }

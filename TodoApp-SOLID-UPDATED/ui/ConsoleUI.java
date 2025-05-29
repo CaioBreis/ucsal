@@ -17,7 +17,7 @@ public class ConsoleUI {
     public ConsoleUI() {
         scanner = new Scanner(System.in);
         currentUser = "User" + new Random().nextInt(1000);
-        System.out.println("ID do usuário atual: " + currentUser);
+
     }
 
     public void start() {

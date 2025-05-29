@@ -18,36 +18,36 @@ public class TaskReflectionUtil {
 
     static {
         FIELD_TRANSLATIONS.put("serialVersionUID", "ID de Versão Serial");
-        FIELD_TRANSLATIONS.put("id", "Identificador"); // Mantido para referência, mas será pulado
+        FIELD_TRANSLATIONS.put("id", "Identificador");
         FIELD_TRANSLATIONS.put("title", "Título");
         FIELD_TRANSLATIONS.put("description", "Descrição");
         FIELD_TRANSLATIONS.put("creationDate", "Data de Criação");
-        FIELD_TRANSLATIONS.put("completed", "Concluída"); // Mantido para referência, mas será pulado
+        FIELD_TRANSLATIONS.put("completed", "Concluída");
         FIELD_TRANSLATIONS.put("priority", "Prioridade");
     }
 
 
     public static void displayTaskProperties(Task task) {
-        System.out.println("Propriedades da Tarefa:"); // Traduzido
+        System.out.println("Propriedades da Tarefa:");
         Field[] fields = task.getClass().getDeclaredFields();
         for (Field field : fields) {
             field.setAccessible(true);
 
             String fieldName = field.getName();
 
-            // Pula os campos 'id' e 'completed'
-            if (fieldName.equals("id") || fieldName.equals("completed")) {
+
+            if (fieldName.equals("id") || fieldName.equals("completed") || fieldName.equals("serialVersionUID")) {
                 continue;
             }
 
             TaskProperty annotation = field.getAnnotation(TaskProperty.class);
             try {
-                // Traduz a descrição da anotação ou usa uma padrão em português
+
                 String desc = (annotation != null && !annotation.description().isEmpty())
                         ? annotation.description()
                         : "sem descrição"; // Caso a anotação esteja vazia ou não exista
 
-                // Traduz o nome do campo
+
                 String translatedFieldName = FIELD_TRANSLATIONS.getOrDefault(fieldName, fieldName);
 
                 Object val = field.get(task);

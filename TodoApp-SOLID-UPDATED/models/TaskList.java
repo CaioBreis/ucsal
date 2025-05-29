@@ -21,12 +21,10 @@ public class TaskList implements TaskOperations, TaskFiltering, TaskPersistence,
     @TaskProperty(description = "Proprietário da lista", required = true)
     private String owner;
 
-    // Removido: @TaskProperty(description = "Usuários com quem a lista é compartilhada")
-    // Removido: private Set<String> sharedWith;
 
     public TaskList() {
         this.tasks = new ArrayList<>();
-        // Removido: this.sharedWith = new HashSet<>();
+
     }
 
     public TaskList(String name, String owner) {
@@ -110,7 +108,7 @@ public class TaskList implements TaskOperations, TaskFiltering, TaskPersistence,
             this.name = loadedList.name;
             this.tasks = loadedList.tasks;
             this.owner = loadedList.owner;
-            // Removido: this.sharedWith = loadedList.sharedWith;
+
         }
     }
 

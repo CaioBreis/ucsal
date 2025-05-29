@@ -73,7 +73,7 @@ public class Task implements Serializable {
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH'h'mm");
         String status = completed ? "Concluída" : "Pendente";
-        // Removido o ID da string formatada
+
         return String.format("%s (Prioridade: %s) - %s - Criada em: %s - %s",
                 title,
                 priority,
